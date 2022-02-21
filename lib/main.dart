@@ -2,21 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:case_2_4_app_theme/util/theme.dart';
 
 void main() {
-  runApp(const ThemesDemoApp()); //AuthScreen());
+  runApp(const ThemesDemoAppEx()); //AuthScreen());
+}
+class ThemesDemoAppEx extends StatefulWidget {
+  const ThemesDemoAppEx({Key? key}) : super(key: key);
+
+  @override
+  _ThemesDemoAppExState createState() => _ThemesDemoAppExState();
 }
 
-class ThemesDemoApp extends StatelessWidget {
-  const ThemesDemoApp({Key? key}) : super(key: key);
+class _ThemesDemoAppExState extends State<ThemesDemoAppEx> {
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: userDefinedTheme(),
-      //themeMode: ThemeMode.light,
-      home: ThemesDemoScreen ()
+        theme: userDefinedTheme(),
+        //themeMode: ThemeMode.light,
+        home: ThemesDemoScreen ()
     );
   }
 }
+
 
 class ThemesDemoScreen extends StatefulWidget {
   const ThemesDemoScreen({Key? key}) : super(key: key);
@@ -26,6 +32,7 @@ class ThemesDemoScreen extends StatefulWidget {
 }
 
 class _ThemesDemoScreenState extends State<ThemesDemoScreen> {
+
   @override
   Widget build(BuildContext context) {
     var _borderStyle = OutlineInputBorder(
@@ -36,7 +43,6 @@ class _ThemesDemoScreenState extends State<ThemesDemoScreen> {
         ));
 
     var _linkTextStyle = Theme.of(context).textTheme.headline1;
-
     return Scaffold(
         body: Container(
           decoration: const BoxDecoration(
@@ -122,7 +128,10 @@ class _ThemesDemoScreenState extends State<ThemesDemoScreen> {
                   height: 20,
                 ),
                 InkWell(
-                  child: Text("Забыли пароль?", style: _linkTextStyle),
+                  child: Text("Забыли пароль?",
+                      //style: _linkTextStyle,
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
                   onTap: () {},
                 ),
               ],
